@@ -1,0 +1,85 @@
+/* 自訂 CSS 變數定義 */
+:root {
+  --radius: 1rem;
+
+  /* iTake 品牌色盤 */
+  --background: oklch(0.985 0.012 70);          /* 暖白底色 */
+  --foreground: oklch(0.22 0.04 260);           /* 深墨藍 */
+  --ink: oklch(0.22 0.04 260);
+  --cream: oklch(0.96 0.025 70);
+
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+
+  --primary: oklch(0.7 0.21 38);                /* iTake 橘色 */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.04 60);
+  --secondary-foreground: var(--ink);
+  --muted: oklch(0.94 0.02 70);
+  --muted-foreground: oklch(0.5 0.03 260);
+  --accent: oklch(0.92 0.06 60);
+  --accent-foreground: var(--ink);
+  --destructive: oklch(0.6 0.24 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.88 0.02 70);
+  --input: oklch(0.88 0.02 70);
+  --ring: oklch(0.7 0.21 38);
+
+  --gold: oklch(0.82 0.16 85);
+
+  --gradient-hero: radial-gradient(circle at 30% 20%, oklch(0.95 0.08 65) 0%, oklch(0.985 0.012 70) 60%);
+  --gradient-prize: linear-gradient(135deg, oklch(0.78 0.2 45), oklch(0.65 0.23 30));
+  --gradient-gold: linear-gradient(135deg, oklch(0.88 0.16 88), oklch(0.72 0.19 55));
+
+  /* 減輕陰影重量，避免手機版視覺太擁擠沉重 */
+  --shadow-pop: 0 4px 0 0 var(--ink);
+  --shadow-soft: 0 8px 24px -8px oklch(0.7 0.21 38 / 0.3);
+  --shadow-card: 0 2px 0 0 var(--ink);
+}
+
+/* 全域重置與基礎樣式 */
+* { 
+  border-color: var(--border); 
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-padding-top: 6rem;
+}
+
+/* 漸層文字工具類 */
+.text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* 排版工具類 */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* 動畫設定 */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+@keyframes sparkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 3s ease-in-out infinite; }
+.animate-sparkle { animation: sparkle 2.4s ease-in-out infinite; }

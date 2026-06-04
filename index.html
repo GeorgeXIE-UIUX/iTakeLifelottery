@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iTake 滿額送好禮｜消費越多，獎勵越豐富</title>
+  <meta name="description" content="消費滿 50 元起即可領取好禮，滿 1000 元再抽萬元現金，每筆消費都是驚喜！" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..700&family=Noto+Sans+TC:wght@400..900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            card: 'var(--card)',
+            'card-foreground': 'var(--card-foreground)',
+            popover: 'var(--popover)',
+            'popover-foreground': 'var(--popover-foreground)',
+            primary: 'var(--primary)',
+            'primary-foreground': 'var(--primary-foreground)',
+            secondary: 'var(--secondary)',
+            'secondary-foreground': 'var(--secondary-foreground)',
+            muted: 'var(--muted)',
+            'muted-foreground': 'var(--muted-foreground)',
+            accent: 'var(--accent)',
+            'accent-foreground': 'var(--accent-foreground)',
+            ink: 'var(--ink)',
+            cream: 'var(--cream)',
+            gold: 'var(--gold)',
+          },
+          backgroundImage: {
+            'gradient-hero': 'var(--gradient-hero)',
+            'gradient-prize': 'var(--gradient-prize)',
+            'gradient-gold': 'var(--gradient-gold)',
+          },
+          boxShadow: {
+            'pop': 'var(--shadow-pop)',
+            'soft': 'var(--shadow-soft)',
+            'card': 'var(--shadow-card)',
+          },
+          fontFamily: {
+            display: ['Fredoka', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+            body: ['Noto Sans TC', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-background text-foreground font-body overflow-x-hidden min-h-screen">
+
+  <section id="top" class="relative bg-gradient-hero overflow-hidden pt-24 sm:pt-28 md:pt-32">
+    <header class="fixed inset-x-0 top-0 z-50 border-b-2 border-ink bg-card shadow-sm">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+        <a href="#top" class="flex items-center transition hover:-translate-y-0.5">
+          <img src="logo.png" alt="iTake Logo" class="h-8 sm:h-10 w-auto object-contain" />
+        </a>
+
+        <nav class="hidden md:flex items-center gap-2 lg:gap-4">
+          <a href="#progress" class="rounded-xl border-2 border-transparent px-3 py-2 text-sm font-bold text-ink hover:border-ink hover:bg-cream transition-all">消費進度</a>
+          <a href="#pool" class="rounded-xl border-2 border-transparent px-3 py-2 text-sm font-bold text-ink hover:border-ink hover:bg-cream transition-all">獎池</a>
+          <a href="#prizes" class="rounded-xl border-2 border-transparent px-3 py-2 text-sm font-bold text-ink hover:border-ink hover:bg-cream transition-all">獎品</a>
+          <a href="#rules" class="rounded-xl border-2 border-transparent px-3 py-2 text-sm font-bold text-ink hover:border-ink hover:bg-cream transition-all">活動辦法</a>
+        </nav>
+
+        <div class="hidden md:block">
+          <a href="https://www.itakelife.com/iTakeProductWeb/webs/webs_product" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl border-2 border-ink bg-primary px-5 py-2.5 text-sm font-black text-primary-foreground shadow-card transition hover:-translate-y-0.5 hover:shadow-pop">
+            <i data-lucide="rocket" class="w-4 h-4"></i> 立即參加
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center rounded-xl border-2 border-ink bg-cream p-2 text-ink shadow-card transition hover:bg-primary hover:text-primary-foreground active:translate-y-1 active:shadow-none">
+          <i data-lucide="menu" id="icon-menu" class="w-6 h-6"></i>
+          <i data-lucide="x" id="icon-close" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden absolute left-0 top-full w-full border-b-2 border-ink bg-card px-4 py-5 shadow-pop">
+        <nav class="flex flex-col gap-3">
+          <a href="#progress" class="mobile-link block rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center text-base font-bold text-ink shadow-card active:translate-y-0.5 active:shadow-none transition-all">消費進度</a>
+          <a href="#pool" class="mobile-link block rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center text-base font-bold text-ink shadow-card active:translate-y-0.5 active:shadow-none transition-all">獎池</a>
+          <a href="#prizes" class="mobile-link block rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center text-base font-bold text-ink shadow-card active:translate-y-0.5 active:shadow-none transition-all">獎品</a>
+          <a href="#rules" class="mobile-link block rounded-xl border-2 border-ink bg-cream px-4 py-3 text-center text-base font-bold text-ink shadow-card active:translate-y-0.5 active:shadow-none transition-all">活動辦法</a>
+          <a href="https://www.itakelife.com/iTakeProductWeb/webs/webs_product" target="_blank" rel="noopener noreferrer" class="mobile-link mt-2 flex justify-center items-center gap-2 rounded-xl border-2 border-ink bg-primary px-4 py-3 text-base font-black text-primary-foreground shadow-card active:translate-y-0.5 active:shadow-none transition-all">
+            <i data-lucide="rocket" class="w-5 h-5"></i> 立即參加
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <svg class="absolute text-primary animate-sparkle pointer-events-none w-6 h-6 top-20 left-[10%]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" /></svg>
+    <svg class="absolute text-primary animate-sparkle pointer-events-none w-6 h-6 top-40 right-[15%]" style="animation-delay: 0.6s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" /></svg>
+    <svg class="absolute text-primary animate-sparkle pointer-events-none w-6 h-6 bottom-20 left-[20%]" style="animation-delay: 1.2s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" /></svg>
+    <svg class="absolute text-primary animate-sparkle pointer-events-none w-6 h-6 bottom-32 right-[8%]" style="animation-delay: 1.8s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0 L14 10 L24 12 L14 14 L12 24 L10 14 L0 12 L10 10 Z" /></svg>
+
+    <div class="mx-auto max-w-6xl px-5 sm:px-6 pb-12 pt-4 md:pb-24 md:pt-8 grid md:grid-cols-2 gap-8 md:gap-10 items-center relative">
+      <div class="space-y-5 md:space-y-6 order-2 md:order-1 text-center md:text-left">
+        <span class="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-card px-3 py-1 text-xs sm:text-sm font-semibold shadow-card">
+          <i data-lucide="sparkles" class="w-4 h-4 text-primary"></i> 限時活動進行中
+        </span>
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-balance leading-[1.05] font-display">
+          消費滿額<br />
+          <span class="text-primary">送好禮</span>
+          <br />抽<span class="text-gradient-gold">萬元現金</span>
+        </h1>
+        <p class="text-base sm:text-lg text-muted-foreground max-w-md mx-auto md:mx-0">
+          從 50 元到 1000 元，11 個驚喜節點任你領。每滿 1000 元再賺一次萬元抽獎資格，越買越爽！
+        </p>
+        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+          <a href="#progress" class="inline-flex items-center gap-2 rounded-2xl border-2 border-ink bg-primary text-primary-foreground px-5 sm:px-6 py-3 text-sm sm:text-base font-bold shadow-pop hover:translate-y-0.5 hover:shadow-none transition-all">
+            查看我的進度 <i data-lucide="trophy" class="w-5 h-5"></i>
+          </a>
+          <a href="#rules" class="inline-flex items-center gap-2 rounded-2xl border-2 border-ink bg-card px-5 sm:px-6 py-3 text-sm sm:text-base font-bold shadow-card hover:translate-y-0.5 hover:shadow-none transition-all text-ink">
+            活動辦法
+          </a>
+        </div>
+      </div>
+      <div class="relative flex items-center justify-center order-1 md:order-2">
+        <div class="absolute inset-0 bg-gradient-prize opacity-20 blur-3xl rounded-full"></div>
+        <img src="robot.png" alt="iTake 機器人" class="relative w-3/4 sm:w-2/3 md:w-full max-w-md animate-float drop-shadow-2xl" />
+      </div>
+    </div>
+  </section>
+
+  <section id="progress" class="py-10 md:py-20 px-4 sm:px-6">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center">
+        <p class="text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] text-primary">MY PROGRESS</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">你的消費進度</h2>
+      </div>
+
+      <div class="mt-8 md:mt-10 rounded-3xl border-2 border-ink bg-card p-4 sm:p-6 md:p-10 shadow-pop">
+        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-end sm:justify-between gap-4 mb-5 sm:mb-6">
+          <div>
+            <p class="text-xs sm:text-sm text-muted-foreground">目前累積消費</p>
+            <p id="current-spend" class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary font-display">$0</p>
+          </div>
+          <div class="sm:text-right">
+            <p class="text-xs sm:text-sm text-muted-foreground">距離下一個獎勵</p>
+            <p class="text-base sm:text-xl md:text-2xl font-bold">
+              再消費 <span id="next-tier-diff" class="text-primary">$0</span> 解鎖 <span id="next-tier-prize"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="relative h-4 sm:h-5 w-full" id="progress-container">
+          <div class="absolute inset-0 rounded-full border-2 border-ink bg-muted overflow-hidden">
+            <div id="progress-bar-fill" class="absolute inset-y-0 left-0 bg-gradient-prize transition-all duration-700" style="width: 0%"></div>
+          </div>
+          <div id="progress-bar-thumb" class="absolute top-1/2 -translate-y-1/2 transition-all duration-700 z-10" style="left: 0px">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-[3px] border-ink bg-card shadow-card"></div>
+          </div>
+        </div>
+
+        <div id="tier-markers" class="relative mt-3 sm:mt-4 flex justify-between text-[9px] sm:text-[10px] md:text-xs font-semibold"></div>
+
+        <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center sm:justify-center gap-2 sm:gap-4 text-xs">
+          <span class="inline-flex items-start gap-2">
+            <span class="w-3 h-3 mt-0.5 rounded-full bg-primary border-2 border-ink shrink-0"></span>
+            <span class="text-muted-foreground"><b class="text-foreground">$50–900 一次性獎勵</b>　每節點限領一次</span>
+          </span>
+          <span class="inline-flex items-start gap-2">
+            <span class="w-3 h-3 mt-0.5 rounded-full bg-gradient-gold border-2 border-ink shrink-0"></span>
+            <span class="text-muted-foreground"><b class="text-foreground">$1000 抽獎資格</b>　可累計、不設上限</span>
+          </span>
+        </div>
+
+        <div class="mt-6 sm:mt-8 grid grid-cols-3 gap-3 sm:gap-4 text-center">
+          <div class="rounded-xl sm:rounded-2xl border-2 border-ink bg-cream p-2 sm:p-4">
+            <p id="stat-unlocked" class="text-2xl sm:text-3xl font-extrabold text-primary font-display">0</p>
+            <p class="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1">已領取 / 10</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border-2 border-ink bg-cream p-2 sm:p-4">
+            <p id="stat-draws" class="text-2xl sm:text-3xl font-extrabold text-primary font-display">0</p>
+            <p class="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1">抽獎資格</p>
+          </div>
+          <div class="rounded-xl sm:rounded-2xl border-2 border-ink bg-cream p-2 sm:p-4">
+            <p class="text-2xl sm:text-3xl font-extrabold text-primary font-display">12</p>
+            <p class="text-[10px] sm:text-xs text-muted-foreground mt-0.5 sm:mt-1">剩餘天數</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pool" class="py-10 md:py-20 px-4 sm:px-6 bg-cream">
+    <div class="mx-auto max-w-6xl">
+      <div class="text-center">
+        <p class="text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] text-primary">PRIZE POOL</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">獎池</h2>
+        <p class="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-muted-foreground px-2">達成消費門檻即可點擊領取，解鎖驚喜好禮！</p>
+      </div>
+
+      <div class="mt-8 md:mt-10 rounded-3xl border-2 border-ink bg-card p-4 sm:p-6 md:p-8 shadow-pop">
+        <div id="prize-grid" class="grid grid-cols-4 grid-rows-4 gap-2 sm:gap-3 md:gap-4 aspect-square max-w-3xl mx-auto"></div>
+
+        <div class="mt-8 grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto text-ink">
+          <div class="rounded-2xl border-2 border-ink bg-card p-4 sm:p-5 flex items-start gap-2 relative overflow-hidden shadow-card">
+            <div class="absolute left-0 top-0 bottom-0 w-2 sm:w-3 bg-primary border-r-2 border-ink"></div>
+            <span class="text-2xl sm:text-3xl pl-3 sm:pl-4">🎁</span>
+            <div class="text-xs sm:text-sm pt-0.5 flex-1">
+              <p class="font-black text-ink text-sm sm:text-base mb-1">外圈 $50–$900</p>
+              <p class="text-muted-foreground leading-relaxed">每節點獎勵<b class="text-primary">僅可領取一次</b>，達成後即可點擊領獎。</p>
+            </div>
+          </div>
+          <div class="rounded-2xl border-2 border-ink bg-card p-4 sm:p-5 flex items-start gap-2 relative overflow-hidden shadow-card">
+            <div class="absolute left-0 top-0 bottom-0 w-2 sm:w-3 bg-gradient-gold border-r-2 border-ink"></div>
+            <span class="text-2xl sm:text-3xl pl-3 sm:pl-4">🎰</span>
+            <div class="text-xs sm:text-sm pt-0.5 flex-1">
+              <p class="font-black text-ink text-sm sm:text-base mb-1">中央 $1000 萬元抽獎</p>
+              <p class="text-muted-foreground leading-relaxed">每滿千元獲 1 次抽獎資格，<b class="text-ink">可無限累計</b>，越多越好抽。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prizes" class="py-10 md:py-20 px-4 sm:px-6">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center">
+        <p class="text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] text-primary">MY REWARDS</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">獎品配送進度</h2>
+      </div>
+      <div id="shipment-empty" class="hidden text-center mt-10 p-8 rounded-2xl border-2 border-dashed border-ink/40 bg-cream/50 text-muted-foreground font-bold">
+        您尚未領取任何獎品，快去累積消費吧！
+      </div>
+      <div id="shipment-list" class="mt-8 md:mt-10 space-y-4"></div>
+    </div>
+  </section>
+
+  <section id="rules" class="py-10 md:py-20 px-4 sm:px-6 bg-cream">
+    <div class="mx-auto max-w-5xl">
+      <div class="text-center">
+        <p class="text-[10px] sm:text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] text-primary">HOW IT WORKS</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold font-display">活動辦法</h2>
+      </div>
+      <div id="rules-list" class="mt-8 md:mt-10 grid sm:grid-cols-2 gap-4 sm:gap-6 text-ink"></div>
+
+      <div class="mt-6 md:mt-8 rounded-2xl border-2 border-dashed border-ink bg-card/60 p-5 sm:p-6 text-xs sm:text-sm text-muted-foreground">
+        <p class="font-bold text-foreground mb-2">＊ 注意事項</p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>本活動限 iTake 註冊會員參加，每帳號每節點獎勵限領一次。</li>
+          <li>活動獎品不得轉換、轉讓或折現（萬元現金除外）。</li>
+          <li>iTake 保留修改、暫停或終止本活動之權利。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 md:py-10 px-4 sm:px-6 border-t-2 border-ink bg-card">
+    <div class="mx-auto max-w-6xl flex flex-col sm:flex-row sm:flex-wrap items-center sm:justify-between gap-3 sm:gap-4 text-center sm:text-left text-ink">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="iTake Logo" class="h-8 object-contain" />
+        <span class="font-bold text-sm sm:text-base">格新智能股份有限公司© 2026</span>
+      </div>
+      <p class="text-xs sm:text-sm text-muted-foreground">客服信箱：support@itake.app</p>
+    </div>
+  </footer>
+
+  <div id="claim-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity">
+    <div class="bg-card border-2 border-ink rounded-2xl shadow-pop p-6 max-w-sm w-full mx-4 transform scale-95 transition-transform" id="claim-modal-content">
+      <h3 class="text-2xl font-display font-bold text-ink mb-2">領取獎勵</h3>
+      <p class="text-muted-foreground mb-6">確定要領取 <span id="modal-prize-name" class="font-bold text-primary text-lg"></span> 嗎？<br/>領取後將為您安排出貨。</p>
+      <div class="flex justify-end gap-3">
+        <button id="btn-cancel-claim" class="px-4 py-2 rounded-xl border-2 border-ink bg-cream font-bold text-ink shadow-card hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer">取消</button>
+        <button id="btn-confirm-claim" class="px-4 py-2 rounded-xl border-2 border-ink bg-primary font-bold text-primary-foreground shadow-card hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none transition-all cursor-pointer">確認領取</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
